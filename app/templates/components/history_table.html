@@ -1,0 +1,35 @@
+<section class="panel history-panel">
+  <div class="panel-header">
+    <div class="panel-title"><i class="bi bi-stopwatch me-2"></i> RIWAYAT RUN</div>
+    <button class="btn btn-sm btn-outline-light" id="clearHistoryBtn" type="button">Clear</button>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-dark table-borderless align-middle history-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Tanggal</th>
+          <th>Target (m)</th>
+          <th>Distance (m)</th>
+          <th>Time</th>
+          <th>Top Speed (m/s)</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="historyBody">
+        {% for item in history_items %}
+        <tr>
+          <td>{{ loop.index }}</td>
+          <td>{{ item.date }}</td>
+          <td>{{ item.target_m }}</td>
+          <td>{{ item.distance_m }}</td>
+          <td>{{ item.time }}</td>
+          <td>{{ item.top_speed }}</td>
+          <td><span class="status-badge">{{ item.status }}</span></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>

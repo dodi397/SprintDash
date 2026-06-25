@@ -1,0 +1,16 @@
+<div class="progress-header">
+  <div class="panel-title">TARGET: <span class="accent" id="progressTarget">{{ race_state.target_m|default(201) }} m</span></div>
+  <div class="race-id">RACE ID: <span id="raceId">{{ race_state.run_id or '#a7f2c3' }}</span></div>
+</div>
+
+<div class="ring-wrap">
+  <div class="progress-ring" id="progressRing">
+    <div class="ring-inner">
+      <div class="ring-distance"><span id="ringDistance">{{ race_state.distance_m|default(0) }}</span></div>
+      <div class="ring-unit">m</div>
+      <div class="ring-percent" id="ringPercent">0%</div>
+    </div>
+  </div>
+</div>
+
+<div class="remaining" id="remainingText">Sisa {{ race_state.target_m|default(201) }} m</div>

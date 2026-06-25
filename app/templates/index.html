@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="dashboard-grid">
+  <section class="panel left-panel">
+    {% include "components/stat_card.html" %}
+  </section>
+
+  <section class="panel center-panel">
+    {% include "components/progress_ring.html" %}
+  </section>
+
+  <section class="panel right-panel">
+    <div class="stats-grid">
+      <div class="stat-mini"><div class="stat-title">DISTANCE (m)</div><div class="stat-value text-green" id="distanceM">{{ race_state.distance_m|default(0) }}</div></div>
+      <div class="stat-mini"><div class="stat-title">DISTANCE (ft)</div><div class="stat-value text-blue" id="distanceFt">{{ race_state.distance_ft|default(0) }}</div></div>
+      <div class="stat-mini"><div class="stat-title">TIME</div><div class="stat-value text-yellow" id="elapsedTime">00:00.00</div></div>
+      <div class="stat-mini"><div class="stat-title">CURRENT SPEED</div><div class="stat-value text-purple" id="currentSpeed">{{ race_state.current_speed|default(0) }}</div></div>
+      <div class="stat-mini"><div class="stat-title">TOP SPEED</div><div class="stat-value text-orange" id="topSpeed">{{ race_state.top_speed|default(0) }}</div></div>
+      <div class="stat-mini"><div class="stat-title">STATUS</div><div class="stat-value text-green" id="statusText">{{ race_state.status|default("IDLE") }}</div></div>
+    </div>
+  </section>
+</div>
+
+<div class="info-grid">
+  <section class="panel info-card">
+    <div class="info-label"><i class="bi bi-crosshair"></i> GPS ACCURACY</div>
+    <div class="info-value" id="gpsAccuracy">{{ race_state.gps_accuracy or "—" }} <span class="unit">m</span></div>
+    <div class="info-caption" id="gpsCaption">Baik</div>
+  </section>
+  <section class="panel info-card">
+    <div class="info-label"><i class="bi bi-geo-alt-fill"></i> LOCATION (LAT / LON)</div>
+    <div class="info-value" id="latLon">{{ race_state.lat or "—" }}, {{ race_state.lon or "—" }}</div>
+    <div class="info-caption" id="locationCaption">Akurasi baik</div>
+  </section>
+</div>
+
+{% include "components/map_panel.html" %}
+{% include "components/history_table.html" %}
+{% include "partials/alerts.html" %}
+{% endblock %}

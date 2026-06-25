@@ -1,0 +1,20 @@
+<aside class="sidebar">
+  <div class="panel sidebar-panel">
+    <div class="panel-title">TARGET DISTANCE</div>
+    <div class="target-box">
+      <input id="targetInput" type="number" value="{{ race_state.target_m or 201 }}" min="1" step="1">
+      <span class="target-unit">m</span>
+    </div>
+    <div class="helper-text">Masukkan target jarak (meter)</div>
+
+    <button class="btn btn-primary btn-large" id="btnLocation" type="button"><i class="bi bi-geo-alt-fill me-2"></i> AMBIL LOKASI</button>
+    <button class="btn btn-success btn-large" id="btnStart" type="button"><i class="bi bi-play-fill me-2"></i> START</button>
+    <button class="btn btn-danger btn-large" id="btnStop" type="button"><i class="bi bi-stop-fill me-2"></i> STOP</button>
+    <button class="btn btn-secondary btn-large" id="btnReset" type="button"><i class="bi bi-arrow-clockwise me-2"></i> RESET</button>
+
+    <div class="alert-box">
+      <i class="bi bi-info-circle-fill"></i>
+      <span>Ambil lokasi terlebih dahulu sebelum menekan START</span>
+    </div>
+  </div>
+</aside>

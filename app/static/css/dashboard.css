@@ -1,0 +1,6 @@
+.sidebar-spacer { height: 12px; }
+.hint { color: var(--muted); font-size: .95rem; margin-top: 6px; }
+.mini-legend { display: flex; justify-content: space-between; color: var(--muted); font-size: .92rem; }
+.legend-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 6px; }
+.legend-dot.green { background: var(--accent); }
+.legend-dot.blue { background: var(--blue); }

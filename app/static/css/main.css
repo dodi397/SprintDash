@@ -1,0 +1,67 @@
+:root {
+  --bg: #08111d;
+  --bg-2: #0d1726;
+  --panel: rgba(12, 20, 33, 0.82);
+  --panel-border: rgba(255,255,255,0.08);
+  --text: #eef4ff;
+  --muted: #95a5c5;
+  --accent: #4be66b;
+  --blue: #4aa9ff;
+  --yellow: #ffd84a;
+  --orange: #ffa44b;
+  --purple: #a869ff;
+  --red: #ff5d5d;
+  --shadow: 0 16px 50px rgba(0,0,0,0.35);
+  --radius: 18px;
+}
+
+html[data-theme="light"] {
+  --bg: #eef3fb;
+  --bg-2: #dfe8f7;
+  --panel: rgba(255,255,255,0.88);
+  --panel-border: rgba(18, 34, 61, 0.09);
+  --text: #0c1830;
+  --muted: #51627f;
+  --shadow: 0 18px 40px rgba(32, 46, 78, 0.10);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  background: radial-gradient(circle at top left, #10213a, var(--bg));
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.bg-glow {
+  position: fixed;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: .20;
+  pointer-events: none;
+}
+.bg-glow-left { left: -80px; top: 50px; background: #2dff7f; }
+.bg-glow-right { right: -120px; top: 100px; background: #2a77ff; }
+
+.app-shell {
+  position: relative;
+  z-index: 2;
+  max-width: 1520px;
+  margin: 0 auto;
+  padding: 18px 20px 10px;
+}
