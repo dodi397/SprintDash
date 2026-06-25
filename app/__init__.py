@@ -1,4 +1,6 @@
 from pathlib import Path
+import os
+
 from flask import Flask
 from config import Config
 from .extensions import db
@@ -7,9 +9,11 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
 
-    # pastikan folder instance ada
-    instance_dir = Path(app.root_path).parent / "instance"
-    instance_dir.mkdir(parents=True, exist_ok=True)
+    # Folder instance hanya dibutuhkan untuk lokal / server biasa.
+    # Di Vercel kita pakai /tmp, jadi tidak perlu mkdir instance.
+    if os.getenv("VERCEL") != "1":
+        instance_dir = Path(app.root_path).parent / "instance"
+        instance_dir.mkdir(parents=True, exist_ok=True)
 
     db.init_app(app)
 
